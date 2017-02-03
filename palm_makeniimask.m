@@ -57,8 +57,10 @@ if eval(isoctfun),
         % subdirectory). For Matlab, it's assumed it's already
         % in the path (it'd run as part of PALM).
         funpth = fileparts(mfilename('fullpath'));
-        addpath(fullfile(funpth,'niftimatlib','matlab'));
-        addpath(fullfile(funpth,'niftimatlib','matlab'));
+        if ~isdeployed,
+            addpath(fullfile(funpth,'niftimatlib','matlab'));
+            addpath(fullfile(funpth,'niftimatlib','matlab'));
+        end
     end
 end
 

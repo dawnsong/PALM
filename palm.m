@@ -26,7 +26,9 @@ function palm(varargin)
 
 % This is redundant in when running as a function as all files should
 % be together, but it helps when running from the shell
-addpath(fileparts(mfilename('fullpath')));
+if ~isdeployed,
+    addpath(fileparts(mfilename('fullpath')));
+end
 
 % If Octave
 if palm_isoctave,

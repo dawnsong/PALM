@@ -42,7 +42,7 @@ if isempty(palm_extern),
     fsldir = getenv('FSLDIR');
     if ~isempty(fsldir),
         palm_extern.fsl = true;
-        addpath(fullfile(fsldir,'etc','matlab'));
+        if ~isdeployed, addpath(fullfile(fsldir,'etc','matlab')); end
         fprintf('Found FSL in %s\n',fsldir);
     end
     
@@ -51,7 +51,7 @@ if isempty(palm_extern),
     fshome = getenv('FREESURFER_HOME');
     if ~isempty(fshome),
         palm_extern.fs = true;
-        addpath(fullfile(fshome,'matlab'));
+        if ~isdeployed, addpath(fullfile(fshome,'matlab')); end;
         fprintf('Found FreeSurfer in %s\n',fshome);
     end
     
@@ -80,7 +80,9 @@ if isempty(palm_extern),
     
     % Check the path of PALM and add the path for the NIFTI and GIFTI I/O.
     palm_extern.palmpath = fileparts(mfilename('fullpath'));
-    addpath(fullfile(palm_extern.palmpath,'fileio'));
-    addpath(fullfile(palm_extern.palmpath,'fileio','extras'));
+    if ~isdeployed,
+        addpath(fullfile(palm_extern.palmpath,'fileio'));
+        addpath(fullfile(palm_extern.palmpath,'fileio','extras'));
+    end
 end
 ext = palm_extern;

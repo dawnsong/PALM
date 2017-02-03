@@ -1,0 +1,269 @@
+Xiaowei Song
+Compilation, 20170203
+./palm2bin.sh
+.
+├── PALM
+│   ├── README.md
+│   ├── fileio
+│   │   ├── @file_array
+│   │   │   ├── Contents.m
+│   │   │   ├── cat.m
+│   │   │   ├── ctranspose.m
+│   │   │   ├── disp.m
+│   │   │   ├── display.m
+│   │   │   ├── double.m
+│   │   │   ├── end.m
+│   │   │   ├── fieldnames.m
+│   │   │   ├── file_array.m
+│   │   │   ├── horzcat.m
+│   │   │   ├── initialise.m
+│   │   │   ├── isnan.m
+│   │   │   ├── length.m
+│   │   │   ├── loadobj.m
+│   │   │   ├── ndims.m
+│   │   │   ├── numel.m
+│   │   │   ├── numeric.m
+│   │   │   ├── permute.m
+│   │   │   ├── private
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.var
+│   │   │   │   ├── compile.sh
+│   │   │   │   ├── datatypes.m
+│   │   │   │   ├── dim.m
+│   │   │   │   ├── dtype.m
+│   │   │   │   ├── file2mat.c
+│   │   │   │   ├── file2mat.m
+│   │   │   │   ├── file2mat.mex
+│   │   │   │   ├── file2mat.mexa64
+│   │   │   │   ├── file2mat.mexmaci64
+│   │   │   │   ├── file2mat.mexw32
+│   │   │   │   ├── file2mat.mexw64
+│   │   │   │   ├── file2mat.o
+│   │   │   │   ├── fname.m
+│   │   │   │   ├── init.c
+│   │   │   │   ├── init.m
+│   │   │   │   ├── init.mex
+│   │   │   │   ├── init.mexa64
+│   │   │   │   ├── init.mexmaci64
+│   │   │   │   ├── init.mexw32
+│   │   │   │   ├── init.mexw64
+│   │   │   │   ├── init.o
+│   │   │   │   ├── mat2file.c
+│   │   │   │   ├── mat2file.m
+│   │   │   │   ├── mat2file.mex
+│   │   │   │   ├── mat2file.mexa64
+│   │   │   │   ├── mat2file.mexmaci64
+│   │   │   │   ├── mat2file.mexw32
+│   │   │   │   ├── mat2file.mexw64
+│   │   │   │   ├── mat2file.o
+│   │   │   │   ├── mystruct.m
+│   │   │   │   ├── offset.m
+│   │   │   │   ├── permission.m
+│   │   │   │   ├── resize_scales.m
+│   │   │   │   ├── scl_inter.m
+│   │   │   │   └── scl_slope.m
+│   │   │   ├── reshape.m
+│   │   │   ├── size.m
+│   │   │   ├── subsasgn.m
+│   │   │   ├── subsref.m
+│   │   │   ├── transpose.m
+│   │   │   └── vertcat.m
+│   │   ├── @gifti
+│   │   │   ├── Contents.m
+│   │   │   ├── display.m
+│   │   │   ├── export.m
+│   │   │   ├── fieldnames.m
+│   │   │   ├── gifti.m
+│   │   │   ├── isfield.m
+│   │   │   ├── plot.m
+│   │   │   ├── private
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── Makefile.var
+│   │   │   │   ├── base64decode.m
+│   │   │   │   ├── base64encode.m
+│   │   │   │   ├── getdict.m
+│   │   │   │   ├── isintent.m
+│   │   │   │   ├── miniz.c
+│   │   │   │   ├── mvtk_write.m
+│   │   │   │   ├── read_freesurfer_file.m
+│   │   │   │   ├── read_gifti_file_standalone.m
+│   │   │   │   ├── xml_parser.m
+│   │   │   │   ├── zstream.c
+│   │   │   │   └── zstream.m
+│   │   │   ├── save.m
+│   │   │   ├── saveas.m
+│   │   │   ├── struct.m
+│   │   │   ├── subsasgn.m
+│   │   │   └── subsref.m
+│   │   ├── @nifti
+│   │   │   ├── Contents.m
+│   │   │   ├── create.m
+│   │   │   ├── disp.m
+│   │   │   ├── display.m
+│   │   │   ├── fieldnames.m
+│   │   │   ├── nifti.m
+│   │   │   ├── private
+│   │   │   │   ├── M2Q.m
+│   │   │   │   ├── Q2M.m
+│   │   │   │   ├── decode_qform0.m
+│   │   │   │   ├── empty_hdr.m
+│   │   │   │   ├── encode_qform0.m
+│   │   │   │   ├── findindict.m
+│   │   │   │   ├── getdict.m
+│   │   │   │   ├── mayo2nifti1.m
+│   │   │   │   ├── mayostruc.m
+│   │   │   │   ├── nifti1.h
+│   │   │   │   ├── nifti1struc.m
+│   │   │   │   ├── nifti2struc.m
+│   │   │   │   ├── nifti_stats.c
+│   │   │   │   ├── nifti_stats.m
+│   │   │   │   ├── nifti_stats_mex.c
+│   │   │   │   ├── niftistruc.m
+│   │   │   │   ├── read_extras.m
+│   │   │   │   ├── read_hdr.m
+│   │   │   │   ├── read_hdr_raw.m
+│   │   │   │   ├── write_extras.m
+│   │   │   │   └── write_hdr_raw.m
+│   │   │   ├── structn.m
+│   │   │   ├── subsasgn.m
+│   │   │   └── subsref.m
+│   │   ├── @xmltree
+│   │   │   ├── Contents.m
+│   │   │   ├── add.m
+│   │   │   ├── attributes.m
+│   │   │   ├── branch.m
+│   │   │   ├── char.m
+│   │   │   ├── children.m
+│   │   │   ├── convert.m
+│   │   │   ├── copy.m
+│   │   │   ├── delete.m
+│   │   │   ├── display.m
+│   │   │   ├── editor.m
+│   │   │   ├── find.m
+│   │   │   ├── flush.m
+│   │   │   ├── get.m
+│   │   │   ├── getfilename.m
+│   │   │   ├── isfield.m
+│   │   │   ├── length.m
+│   │   │   ├── move.m
+│   │   │   ├── parent.m
+│   │   │   ├── private
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── xml_findstr.c
+│   │   │   │   ├── xml_findstr.m
+│   │   │   │   ├── xml_findstr.mexa64
+│   │   │   │   ├── xml_findstr.mexmaci64
+│   │   │   │   ├── xml_findstr.mexw32
+│   │   │   │   ├── xml_findstr.mexw64
+│   │   │   │   └── xml_parser.m
+│   │   │   ├── root.m
+│   │   │   ├── save.m
+│   │   │   ├── set.m
+│   │   │   ├── setfilename.m
+│   │   │   ├── view.m
+│   │   │   └── xmltree.m
+│   │   ├── extras
+│   │   │   ├── spm_existfile.m
+│   │   │   ├── spm_existfile.mexa64
+│   │   │   ├── spm_existfile.mexmaci64
+│   │   │   ├── spm_existfile.mexw32
+│   │   │   ├── spm_existfile.mexw64
+│   │   │   ├── spm_fileparts.m
+│   │   │   ├── spm_flip_analyze_images.m
+│   │   │   └── spm_type.m
+│   │   └── io_licenses
+│   │       ├── gifti_GPL.txt
+│   │       ├── gifti_LICENCE.txt
+│   │       ├── gifti_README.txt
+│   │       ├── nifti_README.txt
+│   │       ├── nifti_gpl.txt
+│   │       └── nifti_license.txt
+│   ├── palm
+│   ├── palm.m
+│   ├── palm_adjacency.m
+│   ├── palm_boxcox.m
+│   ├── palm_calcarea.m
+│   ├── palm_checkprogs.m
+│   ├── palm_ciftiread.m
+│   ├── palm_ciftiwrite.m
+│   ├── palm_clusterd.m
+│   ├── palm_clustere.m
+│   ├── palm_clusterm.m
+│   ├── palm_clustert.m
+│   ├── palm_competitive.m
+│   ├── palm_configrw.m
+│   ├── palm_conv2to4.m
+│   ├── palm_conv4to2.m
+│   ├── palm_core.m
+│   ├── palm_d2b.m
+│   ├── palm_datapval.m
+│   ├── palm_defaults.m
+│   ├── palm_dpxlabel.m
+│   ├── palm_dpxread.m
+│   ├── palm_dpxwrite.m
+│   ├── palm_effectiven.m
+│   ├── palm_faclabel.m
+│   ├── palm_factorial.m
+│   ├── palm_fliptree.m
+│   ├── palm_gamma.m
+│   ├── palm_gammainc.m
+│   ├── palm_gcdf.m
+│   ├── palm_gpval.m
+│   ├── palm_gtoz.m
+│   ├── palm_help.m
+│   ├── palm_hemimerge.m
+│   ├── palm_hemisplit.m
+│   ├── palm_icodown.m
+│   ├── palm_idx2perm.m
+│   ├── palm_incrbin.m
+│   ├── palm_inormal.m
+│   ├── palm_isoctave.m
+│   ├── palm_lowrank.m
+│   ├── palm_makeniimask.m
+│   ├── palm_maskstruct.m
+│   ├── palm_maxshuf.m
+│   ├── palm_mediation.m
+│   ├── palm_metrics.m
+│   ├── palm_miscread.m
+│   ├── palm_miscwrite.m
+│   ├── palm_misspart.m
+│   ├── palm_moments.m
+│   ├── palm_msetread.m
+│   ├── palm_msetwrite.m
+│   ├── palm_nextperm.m
+│   ├── palm_pareto.m
+│   ├── palm_partition.m
+│   ├── palm_perm2idx.m
+│   ├── palm_permtree.m
+│   ├── palm_ptree2dot.m
+│   ├── palm_ptree2vg.m
+│   ├── palm_qtof.m
+│   ├── palm_quickperms.m
+│   ├── palm_quicksave.m
+│   ├── palm_randg.m
+│   ├── palm_ready.m
+│   ├── palm_reindex.m
+│   ├── palm_saveall.m
+│   ├── palm_shuffree.m
+│   ├── palm_shuftree.m
+│   ├── palm_srfread.m
+│   ├── palm_strcsvread.m
+│   ├── palm_swapfmt.m
+│   ├── palm_takeargs.m
+│   ├── palm_tfce.m
+│   ├── palm_tree.m
+│   ├── palm_version.txt
+│   ├── palm_vestread.m
+│   ├── palm_vestwrite.m
+│   ├── palm_vtxlabel.m
+│   └── xpalm.LOG
+├── dawnote
+├── mccExcludedFiles.log
+├── palm
+├── palm2bin.sh
+├── readme.txt
+├── requiredMCRProducts.txt
+├── run_palm.sh
+└── xpalm.LOG
+
+12 directories, 251 files
