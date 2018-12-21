@@ -60,7 +60,10 @@ elseif df1 == 1,
     ig = ~(ic|in);
     gcdf = zeros(size(G));
     if any(ig(:)),
-        gcdf(ig) = betainc(1./(1+G(ig).^2./df2(ig)),df2(ig)/2,.5)/2;
+        %Xiaowei, 20181219
+        rng01=1./(1+G(ig).^2./df2(ig));
+        rng01(rng01<0)=0; rng01(rng01>1)=1;
+        gcdf(ig) = betainc(rng01, df2(ig)/2,.5)/2;
     end
     ig = G > 0 & ig;
     gcdf(ig) = 1 - gcdf(ig);
@@ -68,7 +71,7 @@ elseif df1 == 1,
         gcdf(ic) = .5 + atan(G(ic))/pi;
     end
     if any(in(:)),
-        gcdf(ic) = palm_gcdf(G(in),0);
+        gcdf(ic) = erfc(-G(in)/sqrt(2))/2;
     end
 
 elseif df1 == 0,
